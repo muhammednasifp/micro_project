@@ -1,0 +1,14 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+     
+{%block content_style%}
+    <link rel="stylesheet" href="{% static 'style/profile_style.css' %}">
+{% endblock content_style %}
+
+{% block nav_content %}
+    {% include 'navbar.html'%}  
+{%endblock nav_content %}
+
+{%block content%}
+    {%include 'profile_content.html'%}
+{%endblock content %}

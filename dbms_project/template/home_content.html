@@ -1,0 +1,26 @@
+<main class="main-content">
+
+    <h1 class="main-title"> Placement<br>Tracker</h1>
+
+    <p class="main-description">
+        One-stop platform to track all placement-related information of CSE Department, 
+        abc Collage, Kerala. Register to get started. Sign In to 
+        access your dashboard if you are already registered.
+    </p>
+
+    <div class="action-buttons">
+        <a style="text-decoration: none;" href="{% url 'signin' %}">
+            <button class="btn btn-primary">
+                <span>→</span>
+                <span>Sign In</span>
+            </button>
+        </a>
+
+        <a style="text-decoration: none;" href="{% url 'signup' %}">
+            <button class="btn btn-secondary">
+                <span>→</span>
+                <span>Sign-Up</span>
+            </button>
+        </a>
+    </div>
+</main>

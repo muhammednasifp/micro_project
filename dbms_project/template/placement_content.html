@@ -1,0 +1,462 @@
+<div class="container"></div>
+       
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-group">
+                <label>Status:</label>
+                <select id="statusFilter" onchange="filterOffers()">
+                    <option value="all">All Status</option>
+                    <option value="offered">Offered</option>
+                    <option value="interview">Interview</option>
+                    <option value="applied">Applied</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Domain:</label>
+                <select id="domainFilter" onchange="filterOffers()">
+                    <option value="all">All Domains</option>
+                    <option value="software">Software Development</option>
+                    <option value="data">Data Science</option>
+                    <option value="product">Product Management</option>
+                    <option value="consulting">Consulting</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Search:</label>
+                <input type="text" id="searchInput" placeholder="Search company or role..." onkeyup="filterOffers()">
+            </div>
+        </div>
+
+        <!-- Offers Grid -->
+        <div class="offers-grid" id="offersGrid">
+            <!-- Offer Card 1 -->
+            <div class="offer-card" data-status="offered" data-domain="software">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">🚀</div>
+                        <div class="company-name">TechCorp India</div>
+                        <div class="job-title">Software Development Engineer</div>
+                    </div>
+                    <span class="status-badge status-offered">Offered</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Package:</span>
+                        <span class="detail-value salary-highlight">₹12 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Bangalore</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Joining Date:</span>
+                        <span class="detail-value">July 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Jan 15, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">On-site</span>
+                    <span class="tag">Backend</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('TechCorp India')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="acceptOffer('TechCorp India')">Accept Offer</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 2 -->
+            <div class="offer-card" data-status="offered" data-domain="data">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">📊</div>
+                        <div class="company-name">DataMinds Analytics</div>
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                    <span class="status-badge status-offered">Offered</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Package:</span>
+                        <span class="detail-value salary-highlight">₹14 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Hyderabad</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Joining Date:</span>
+                        <span class="detail-value">June 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Jan 20, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Hybrid</span>
+                    <span class="tag">ML/AI</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('DataMinds Analytics')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="acceptOffer('DataMinds Analytics')">Accept Offer</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 3 -->
+            <div class="offer-card" data-status="offered" data-domain="software">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">💻</div>
+                        <div class="company-name">CloudScale Systems</div>
+                        <div class="job-title">Full Stack Developer</div>
+                    </div>
+                    <span class="status-badge status-offered">Offered</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Package:</span>
+                        <span class="detail-value salary-highlight">₹10 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Remote</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Joining Date:</span>
+                        <span class="detail-value">Aug 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Feb 5, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Remote</span>
+                    <span class="tag">React</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('CloudScale Systems')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="acceptOffer('CloudScale Systems')">Accept Offer</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 4 - Interview -->
+            <div class="offer-card" data-status="interview" data-domain="software">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">🏢</div>
+                        <div class="company-name">InnovateTech Solutions</div>
+                        <div class="job-title">Backend Engineer</div>
+                    </div>
+                    <span class="status-badge status-interview">Interview</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Expected Package:</span>
+                        <span class="detail-value salary-highlight">₹11-13 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Pune</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Interview Date:</span>
+                        <span class="detail-value">Oct 15, 2025</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Sep 10, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">On-site</span>
+                    <span class="tag">Node.js</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('InnovateTech Solutions')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="prepareInterview('InnovateTech Solutions')">Prepare</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 5 - Interview -->
+            <div class="offer-card" data-status="interview" data-domain="product">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">🎨</div>
+                        <div class="company-name">ProductVision Inc</div>
+                        <div class="job-title">Associate Product Manager</div>
+                    </div>
+                    <span class="status-badge status-interview">Interview</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Expected Package:</span>
+                        <span class="detail-value salary-highlight">₹15-18 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Mumbai</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Interview Date:</span>
+                        <span class="detail-value">Oct 20, 2025</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Sep 5, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Hybrid</span>
+                    <span class="tag">B2C</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('ProductVision Inc')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="prepareInterview('ProductVision Inc')">Prepare</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 6 - Applied -->
+            <div class="offer-card" data-status="applied" data-domain="consulting">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">📈</div>
+                        <div class="company-name">ConsultPro Partners</div>
+                        <div class="job-title">Business Analyst</div>
+                    </div>
+                    <span class="status-badge status-applied">Applied</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Expected Package:</span>
+                        <span class="detail-value salary-highlight">₹12-15 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Delhi NCR</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value">Under Review</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Sep 25, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">On-site</span>
+                    <span class="tag">Consulting</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('ConsultPro Partners')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="trackStatus('ConsultPro Partners')">Track Status</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 7 - Applied -->
+            <div class="offer-card" data-status="applied" data-domain="software">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">⚡</div>
+                        <div class="company-name">QuickDev Technologies</div>
+                        <div class="job-title">Frontend Developer</div>
+                    </div>
+                    <span class="status-badge status-applied">Applied</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Expected Package:</span>
+                        <span class="detail-value salary-highlight">₹9-11 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Bangalore</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value">Application Submitted</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Sep 28, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">On-site</span>
+                    <span class="tag">React</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewDetails('QuickDev Technologies')">View Details</button>
+                    <button class="action-btn btn-secondary" onclick="trackStatus('QuickDev Technologies')">Track Status</button>
+                </div>
+            </div>
+
+            <!-- Offer Card 8 - Rejected -->
+            <div class="offer-card" data-status="rejected" data-domain="data">
+                <div class="offer-header">
+                    <div class="company-info">
+                        <div class="company-logo">🔬</div>
+                        <div class="company-name">AI Research Labs</div>
+                        <div class="job-title">ML Research Engineer</div>
+                    </div>
+                    <span class="status-badge status-rejected">Not Selected</span>
+                </div>
+                <div class="offer-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Package Range:</span>
+                        <span class="detail-value">₹16-20 LPA</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Bangalore</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Feedback:</span>
+                        <span class="detail-value">Available</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Applied On:</span>
+                        <span class="detail-value">Aug 15, 2025</span>
+                    </div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">Research</span>
+                    <span class="tag">Deep Learning</span>
+                </div>
+                <div class="offer-actions">
+                    <button class="action-btn btn-primary" onclick="viewFeedback('AI Research Labs')">View Feedback</button>
+                    <button class="action-btn btn-secondary" onclick="archiveOffer('AI Research Labs')">Archive</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterOffers() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const domainFilter = document.getElementById('domainFilter').value;
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const offerCards = document.querySelectorAll('.offer-card');
+
+            offerCards.forEach(card => {
+                const status = card.getAttribute('data-status');
+                const domain = card.getAttribute('data-domain');
+                const companyName = card.querySelector('.company-name').textContent.toLowerCase();
+                const jobTitle = card.querySelector('.job-title').textContent.toLowerCase();
+
+                const matchesStatus = statusFilter === 'all' || status === statusFilter;
+                const matchesDomain = domainFilter === 'all' || domain === domainFilter;
+                const matchesSearch = companyName.includes(searchInput) || jobTitle.includes(searchInput);
+
+                if (matchesStatus && matchesDomain && matchesSearch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function viewDetails(companyName) {
+            showNotification(`📋 Viewing details for ${companyName}`);
+        }
+
+        function acceptOffer(companyName) {
+            if (confirm(`Are you sure you want to accept the offer from ${companyName}?`)) {
+                showNotification(`🎉 Congratulations! Offer from ${companyName} accepted!`, 'success');
+            }
+        }
+
+        function prepareInterview(companyName) {
+            showNotification(`📚 Opening interview preparation for ${companyName}`);
+        }
+
+        function trackStatus(companyName) {
+            showNotification(`🔍 Checking application status for ${companyName}`);
+        }
+
+        function viewFeedback(companyName) {
+            showNotification(`💡 Opening feedback from ${companyName}`);
+        }
+
+        function archiveOffer(companyName) {
+            if (confirm(`Archive the application from ${companyName}?`)) {
+                showNotification(`📦 Application archived successfully`);
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' 
+                ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' 
+                : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                max-width: 400px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animate cards on load
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.offer-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>

@@ -1,0 +1,10 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+
+{%block content_style%}
+    <link rel="stylesheet" href="{% static 'style/signup_style.css' %}">
+{% endblock content_style %}
+
+{%block content%}
+    {%include 'signup_content.html'%}
+{%endblock content %}

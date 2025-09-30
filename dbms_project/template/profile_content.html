@@ -1,0 +1,317 @@
+ <div class="container">
+ <!-- Profile Container -->
+        <div class="profile-container" id="profileContainer">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-header-content">
+                    <div class="profile-avatar">👨‍🎓</div>
+                    <div class="profile-info">
+                        <h1 id="displayName">Rahul Kumar</h1>
+                        <p class="subtitle" id="displayCourse">B.Tech in Computer Science Engineering</p>
+                    </div>
+                    <button class="edit-btn" id="editBtn" onclick="toggleEditMode()">✏️ Edit Profile</button>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content" id="profileContent">
+                <!-- Personal Information -->
+                <div class="section">
+                    <h2 class="section-title">Personal Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Full Name</div>
+                            <div class="info-value" id="name">Rahul Kumar</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value" id="email">rahul.kumar@college.edu</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value" id="phone">+91 98765 43210</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Date of Birth</div>
+                            <div class="info-value" id="dob">15th August 2003</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Details -->
+                <div class="section">
+                    <h2 class="section-title">Academic Details</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Course</div>
+                            <div class="info-value" id="course">B.Tech Computer Science</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Current Year/Semester</div>
+                            <div class="info-value" id="yearSem">4th Year, 7th Semester</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">CGPA</div>
+                            <div class="info-value" id="cgpa">8.5 / 10.0</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Expected Graduation</div>
+                            <div class="info-value" id="graduation">May 2026</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">12th Grade (%)</div>
+                            <div class="info-value" id="grade12">92.5%</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">10th Grade (%)</div>
+                            <div class="info-value" id="grade10">95.0%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placement Preferences -->
+                <div class="section">
+                    <h2 class="section-title">Placement Preferences</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Interested Domain</div>
+                            <div class="info-value" id="domain">Software Development, Data Science</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Preferred Role</div>
+                            <div class="info-value" id="role">Full Stack Developer, ML Engineer</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Expected Salary (LPA)</div>
+                            <div class="info-value" id="salary">8-12 LPA</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Preferred Location</div>
+                            <div class="info-value" id="location">Bangalore, Hyderabad, Remote</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills & Certifications -->
+                <div class="section">
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <div class="skills-container" id="skillsContainer">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="section">
+                    <h2 class="section-title">Additional Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item" style="grid-column: 1 / -1;">
+                            <div class="info-label">About Me</div>
+                            <div class="info-value" id="about">Passionate computer science student with a strong foundation in software development and data science. Experienced in building full-stack web applications and machine learning models. Active contributor to open-source projects and tech communities.</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">LinkedIn</div>
+                            <div class="info-value" id="linkedin">linkedin.com/in/rahulkumar</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value" id="github">github.com/rahulkumar</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Portfolio</div>
+                            <div class="info-value" id="portfolio">rahulkumar.dev</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isEditMode = false;
+        const originalData = {};
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const container = document.getElementById('profileContainer');
+            const editBtn = document.getElementById('editBtn');
+
+            if (isEditMode) {
+                // Save original data
+                saveOriginalData();
+                
+                // Enter edit mode
+                container.classList.add('edit-mode');
+                editBtn.textContent = '❌ Cancel';
+                convertToInputs();
+                showActionButtons();
+            } else {
+                // Exit edit mode
+                container.classList.remove('edit-mode');
+                editBtn.textContent = '✏️ Edit Profile';
+                restoreOriginalData();
+                hideActionButtons();
+            }
+        }
+
+        function saveOriginalData() {
+            const fields = ['name', 'email', 'phone', 'dob', 'course', 'yearSem', 'cgpa', 
+                          'graduation', 'grade12', 'grade10', 'domain', 'role', 'salary', 
+                          'location', 'about', 'linkedin', 'github', 'portfolio'];
+            
+            fields.forEach(field => {
+                originalData[field] = document.getElementById(field).textContent;
+            });
+        }
+
+        function restoreOriginalData() {
+            Object.keys(originalData).forEach(field => {
+                document.getElementById(field).textContent = originalData[field];
+            });
+        }
+
+        function convertToInputs() {
+            const fields = {
+                'name': 'text',
+                'email': 'email',
+                'phone': 'tel',
+                'dob': 'text',
+                'course': 'text',
+                'yearSem': 'text',
+                'cgpa': 'text',
+                'graduation': 'text',
+                'grade12': 'text',
+                'grade10': 'text',
+                'domain': 'text',
+                'role': 'text',
+                'salary': 'text',
+                'location': 'text',
+                'linkedin': 'text',
+                'github': 'text',
+                'portfolio': 'text'
+            };
+
+            Object.keys(fields).forEach(field => {
+                const element = document.getElementById(field);
+                const value = element.textContent;
+                element.innerHTML = `<input type="${fields[field]}" value="${value}">`;
+            });
+
+            // Special handling for about (textarea)
+            const aboutElement = document.getElementById('about');
+            const aboutValue = aboutElement.textContent;
+            aboutElement.innerHTML = `<textarea>${aboutValue}</textarea>`;
+        }
+
+        function showActionButtons() {
+            const content = document.getElementById('profileContent');
+            if (!document.getElementById('actionButtons')) {
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.className = 'action-buttons';
+                buttonsDiv.id = 'actionButtons';
+                buttonsDiv.innerHTML = `
+                    <button class="cancel-btn" onclick="toggleEditMode()">Cancel</button>
+                    <button class="save-btn" onclick="saveProfile()">💾 Save Changes</button>
+                `;
+                content.appendChild(buttonsDiv);
+            }
+        }
+
+        function hideActionButtons() {
+            const actionButtons = document.getElementById('actionButtons');
+            if (actionButtons) {
+                actionButtons.remove();
+            }
+        }
+
+        function saveProfile() {
+            // Get all input values
+            const fields = ['name', 'email', 'phone', 'dob', 'course', 'yearSem', 'cgpa', 
+                          'graduation', 'grade12', 'grade10', 'domain', 'role', 'salary', 
+                          'location', 'linkedin', 'github', 'portfolio'];
+            
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                const input = element.querySelector('input');
+                if (input) {
+                    element.textContent = input.value;
+                }
+            });
+
+            // Handle about textarea
+            const aboutElement = document.getElementById('about');
+            const textarea = aboutElement.querySelector('textarea');
+            if (textarea) {
+                aboutElement.textContent = textarea.value;
+            }
+
+            // Update header
+            document.getElementById('displayName').textContent = document.getElementById('name').textContent;
+            document.getElementById('displayCourse').textContent = document.getElementById('course').textContent;
+
+            // Exit edit mode
+            isEditMode = false;
+            document.getElementById('profileContainer').classList.remove('edit-mode');
+            document.getElementById('editBtn').textContent = '✏️ Edit Profile';
+            hideActionButtons();
+
+            // Show success message
+            showNotification('Profile updated successfully! ✅');
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
