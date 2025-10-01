@@ -2,6 +2,7 @@ from django.db import models
 
 class Student(models.Model):
     name=models.CharField(max_length=200)
+    profile_image=models.ImageField(upload_to='profile_images/',null=True)
     email=models.EmailField(max_length=200)
     phone=models.CharField(max_length=200)
     dob = models.DateField()
@@ -23,8 +24,7 @@ class AcademicDetails(models.Model):
     grade12 = models.DecimalField(max_digits=5, decimal_places=2)
     grade10 = models.DecimalField(max_digits=5, decimal_places=2)
 
-    def __str__(self)->str:
-        return str.name
+   
 
 
 class PlacementPreferences(models.Model):
@@ -34,8 +34,7 @@ class PlacementPreferences(models.Model):
     salary = models.CharField(max_length=50)
     location = models.CharField(max_length=200)
 
-    def __str__(self)->str:
-        return str.name
+    
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)

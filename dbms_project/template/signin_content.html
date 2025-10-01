@@ -1,12 +1,13 @@
  <main class="main-content">
         <div class="signin-container">
-            <form action="#">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <h2 class="form-title">Welcome Back!</h2>
                 <p class="form-subtitle">Sign in to continue your journey.</p>
                 
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <label for="email">Username/label>
+                    <input type="text" id="email" name="email" placeholder="you@example.com" required>
                 </div>
                 
                 <div class="form-group">
@@ -16,7 +17,7 @@
 
                 <div class="form-options">
                     <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
+                </div> 
                 
                 <button type="submit" class="btn">
                     Sign In
