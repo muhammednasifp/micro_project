@@ -1,0 +1,11 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+     
+{%block content_style%}
+    <link rel="stylesheet" href="{% static 'style/regForm_style.css' %}">
+{% endblock content_style %}
+
+
+{%block content%}
+    {%include 'registration_content.html'%}
+{%endblock content %}

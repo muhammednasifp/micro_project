@@ -13,11 +13,10 @@ class Student(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
 
     def __str__(self)->str:
-        return str.name
+        return self.name
 
 class AcademicDetails(models.Model):
     student = models.OneToOneField(Student, on_delete=models.CASCADE, related_name="academic_details")
-    course = models.CharField(max_length=100)
     year_sem = models.CharField(max_length=50)
     cgpa = models.DecimalField(max_digits=4, decimal_places=2)
     graduation = models.CharField(max_length=50)

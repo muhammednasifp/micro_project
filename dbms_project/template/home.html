@@ -4,9 +4,11 @@
     <link rel="stylesheet" href="{% static 'style/home_style.css' %}">
 {%endblock content_style %}
 
-{% block nav_content %}
-    {% include 'navbar.html'%}
-{%endblock nav_content %}
+    {% block nav_content %}
+        {% if user.is_authenticated %}
+            {% include 'navbar.html'%}
+        {% endif %}
+    {%endblock nav_content %}
 
 
 {%block content%}

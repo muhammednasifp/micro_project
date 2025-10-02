@@ -4,7 +4,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home'%}">Home</a></li>
                 <li><a href="{% url 'placement'%}">Placement</a></li>
-                <li><a href="{% url 'student_profile'%}">Profile</a></li>
+                <li><a href="{% url 'student_profile' student.id %}">Profile</a></li>
             </ul>
         </nav>
 </header>
