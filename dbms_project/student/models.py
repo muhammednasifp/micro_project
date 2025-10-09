@@ -1,6 +1,7 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 class Student(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE, related_name="student",null=True)
     name=models.CharField(max_length=200)
     profile_image=models.ImageField(upload_to='profile_images/',null=True)
     email=models.EmailField(max_length=200)

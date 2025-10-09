@@ -4,7 +4,9 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home'%}">Home</a></li>
                 <li><a href="{% url 'placement'%}">Placement</a></li>
-                <li><a href="{% url 'student_profile' student.id %}">Profile</a></li>
+                <!-- {% if request.user.is_authenticated and request.user.student %} -->
+                <li><a href="{% url 'student_profile' request.user.student.id %}">Profile</a></li>
+                <!-- {% endif %} -->
             </ul>
         </nav>
 </header>
