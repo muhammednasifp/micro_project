@@ -31,6 +31,6 @@ def signup(request):
         print('hello world')
         user=User.objects.create_user(username=username,password=password)
         if user:
-          return  redirect('registration')
+          return  redirect('home')
     
     return render(request,'signup.html')
