@@ -8,38 +8,39 @@
         access your dashboard if you are already registered.
     </p>
     {% if user.is_authenticated %}
-
     <div class="action-buttons">
-            <a style="text-decoration: none;" href="{% url 'signout' %}">
-                <button class="btn btn-primary">
-                    <span>→</span>
-                    <span>Sign Out</span>
-                </button>
-            </a>
+        <a style="text-decoration: none;" href="{% url 'signout' %}">
+            <button class="btn btn-primary">
+                <span>→</span>
+                <span>Sign Out</span>
+            </button>
+        </a>
 
-            <a style="text-decoration: none;" href="{% url 'student_registration' %}">
+        {% if not user.student %}
+        <a style="text-decoration: none;" href="{% url 'student_registration' %}">
                 <button class="btn btn-primary">
                     <span>→</span>
-                    <span>Registration</span>
+                    <span>Complete Registration</span>
                 </button>
             </a>
+        {% endif %}
     </div>
 
-    {% else %}
-        <div class="action-buttons">
-            <a style="text-decoration: none;" href="{% url 'signin' %}">
-                <button class="btn btn-primary">
-                    <span>→</span>
-                    <span>Sign In</span>
-                </button>
-            </a>
+{% else %}
+    <div class="action-buttons">
+        <a style="text-decoration: none;" href="{% url 'signin' %}">
+            <button class="btn btn-primary">
+                <span>→</span>
+                <span>Sign In</span>
+            </button>
+        </a>
 
-            <a style="text-decoration: none;" href="{% url 'signup' %}">
-                <button class="btn btn-secondary">
-                    <span>→</span>
-                    <span>Sign-Up</span>
-                </button>
-            </a>
-        </div>
-    {% endif %}
+        <a style="text-decoration: none;" href="{% url 'signup' %}">
+            <button class="btn btn-secondary">
+                <span>→</span>
+                <span>Sign-Up</span>
+            </button>
+        </a>
+    </div>
+{% endif %}
 </main>

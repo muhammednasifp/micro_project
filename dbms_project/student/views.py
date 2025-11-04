@@ -51,6 +51,7 @@ def registration(request):
 
         #  Create Student first 
         student_obj = Student(
+            user=request.user, 
             name=name, email=email, phone=phone_number, dob=dob,
             linkedin=linkedin, github=github, portfolio=portfolio
         )
