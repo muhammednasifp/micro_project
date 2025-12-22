@@ -7,7 +7,7 @@ def show_home(request):
 def show_profile(request,student_id):
     student = Student.objects.select_related('academic_details', 'placement_preferences') \
                              .prefetch_related('skills') \
-                             .get(id=student_id)
+                             .get(id=student_id)    
 
     context = {
         'student': student,

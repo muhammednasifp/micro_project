@@ -1,5 +1,13 @@
 from django.shortcuts import render
+from  .models import Placement_details
 
-# Create your views here.
+
 def show_placement(request):
-    return render(request,'placement.html')
+
+    placement_obj=Placement_details.objects.all()
+
+    context={
+            'placements': placement_obj
+    }
+
+    return render(request,'placement.html',context)

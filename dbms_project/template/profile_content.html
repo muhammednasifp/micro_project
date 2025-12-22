@@ -10,7 +10,7 @@
                         <h1 id="displayName">{{student.name}}</h1>
                         <p class="subtitle" id="displayCourse">B.Tech in Computer Science Engineering</p>
                     </div>
-                    <button class="edit-btn" id="editBtn" onclick="toggleEditMode()">✏️ Edit Profile</button>
+                    <button class="edit-btn" id="editBtn">✏️ Edit Profile</button>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                     <div class="info-grid">
                         <div class="info-item">
                             <div class="info-label">Interested Domain</div>
-                            <div class="info-value" id="domain">{{placement.domain}}/div>
+                            <div class="info-value" id="domain">{{placement.domain}}</div>
                         </div>
                         <div class="info-item">
                             <div class="info-label">Preferred Role</div>
@@ -98,7 +98,7 @@
                     <h2 class="section-title">Skills & Technologies</h2>
                     <div class="skills-container" id="skillsContainer">
                     {% for skill in skills %}
-                            <span class="skill-tag">skill.name</span>
+                            <span class="skill-tag">{{ skill.name }}</span>
                     {% endfor %}
                     </div>
                 </div>
@@ -129,28 +129,6 @@
         let isEditMode = false;
         const originalData = {};
 
-        function toggleEditMode() {
-            isEditMode = !isEditMode;
-            const container = document.getElementById('profileContainer');
-            const editBtn = document.getElementById('editBtn');
-
-            if (isEditMode) {
-                // Save original data
-                saveOriginalData();
-                
-                // Enter edit mode
-                container.classList.add('edit-mode');
-                editBtn.textContent = '❌ Cancel';
-                convertToInputs();
-                showActionButtons();
-            } else {
-                // Exit edit mode
-                container.classList.remove('edit-mode');
-                editBtn.textContent = '✏️ Edit Profile';
-                restoreOriginalData();
-                hideActionButtons();
-            }
-        }
 
         function saveOriginalData() {
             const fields = ['name', 'email', 'phone', 'dob', 'course', 'yearSem', 'cgpa', 

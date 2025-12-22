@@ -27,5 +27,4 @@ class Placement_details(models.Model):
 
 
     def __str__(self)->str:
-        return str.company_name
-
+        return self.company_name

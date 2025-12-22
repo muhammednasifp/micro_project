@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Student(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE, related_name="student",null=True)
     name=models.CharField(max_length=200)
@@ -24,7 +25,8 @@ class AcademicDetails(models.Model):
     grade12 = models.DecimalField(max_digits=5, decimal_places=2)
     grade10 = models.DecimalField(max_digits=5, decimal_places=2)
 
-   
+    def __str__(self)->str:
+        return self.student
 
 
 class PlacementPreferences(models.Model):
@@ -34,6 +36,8 @@ class PlacementPreferences(models.Model):
     salary = models.CharField(max_length=50)
     location = models.CharField(max_length=200)
 
+    def __str__(self)->str:
+        return self.student
     
 
 class Skill(models.Model):
