@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Student, AcademicDetails, PlacementPreferences, Skill
+from django.http import HttpResponse
+ 
 # Create your views here.
 def show_home(request):
     return render(request,'home.html')
@@ -24,6 +26,14 @@ def show_profile(request,student_id):
 
 def registration(request):
     if request.method == "POST":
+
+        if student_id:
+            # ===== UPDATE =====
+            student_obj = Student.objects.get(id=student_id)
+        else:
+            # ===== CREATE =====
+            student_obj = Student(user=request.user)
+
         #  Student Data 
         name = request.POST.get('fullname')
         email = request.POST.get('email')
@@ -77,6 +87,22 @@ def registration(request):
             skill_obj, created = Skill.objects.get_or_create(name=name)
             student_obj.skills.add(skill_obj)  # link skill to student
 
-        return redirect('home')  
+        return redirect('student_profile', student_id=student_obj.id)  
 
     return render(request, 'registration.html')
+
+def edit_profile(request,student_id):
+
+    student = Student.objects.select_related('academic_details', 'placement_preferences') \
+                             .prefetch_related('skills') \
+                             .get(id=student_id) 
+
+    context = {
+        'student': student,
+        'academic': getattr(student, 'academic_details', None),
+        'placement': getattr(student, 'placement_preferences', None),
+        'skills': student.skills.all(),  
+        'is_edit':True
+    }
+
+    return render(request,'registration.html',context)
