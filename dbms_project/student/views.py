@@ -32,7 +32,8 @@ def registration(request, student_id=None):
     placement_obj = None
 
     if student_id:   # Edit Mode
-        student_obj = Student.objects.get(id=student_id)
+        student_obj = Student.objects.filter(id=student_id).first()  # No error
+    if student_obj:
         academic_obj = AcademicDetails.objects.filter(student=student_obj).first()
         placement_obj = PlacementPreferences.objects.filter(student=student_obj).first()
 

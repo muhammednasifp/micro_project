@@ -17,7 +17,7 @@
         </a>
 
         {% if not user.student %}
-        <a style="text-decoration: none;" href="{% url 'student_registration' %}">
+        <a style="text-decoration: none;" href="{% url 'student_registration' user.id %}">
                 <button class="btn btn-primary">
                     <span>→</span>
                     <span>Complete Registration</span>

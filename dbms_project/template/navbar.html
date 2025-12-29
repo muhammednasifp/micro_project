@@ -4,10 +4,9 @@
             <ul class="nav-links">
                 {% if user.student %}
                 <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'placement'%}">Placement</a></li>
+                <li><a href="{% url 'placement' user.student.id %}">Placement</a></li>
                 <li><a href="{% url 'student_profile' user.student.id %}">Profile</a></li>
-                {% endif %}
-                
+                {% endif %} 
             </ul>
         </nav>
 </header>
