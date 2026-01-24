@@ -5,7 +5,13 @@
             <!-- Profile Header -->
             <div class="profile-header">
                 <div class="profile-header-content">
-                    <div class="profile-avatar">👨‍🎓</div>
+                    <div class="profile-pic-wrapper">
+                    <!-- <img src="{{ student.profile_pic.url }}" alt="Profile Picture" class="profile-pic"> -->
+
+                    <!-- Upload Button -->
+                    <label for="profileUpload" class="upload-btn">+</label>
+                    <input type="file" id="profileUpload" name="profile_pic" accept="image/*" style="display:none" onchange="this.form.submit()">
+                        </div>
                     <div class="profile-info">
                         <h1 id="displayName">{{student.name}}</h1>
                         <p class="subtitle" id="displayCourse">B.Tech in Computer Science Engineering</p>
