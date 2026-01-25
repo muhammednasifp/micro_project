@@ -1,4 +1,4 @@
-{% extends 'blank_layout.html' %}
+{% extends 'Home/blank_layout.html' %}
 {% load static %}
 {%block content_style%}
     <link rel="stylesheet" href="{% static 'style/home_style.css' %}">
@@ -6,11 +6,11 @@
 
     {% block nav_content %}
         {% if user.is_authenticated %}
-            {% include 'navbar.html'%}
+            {% include 'Home/navbar.html'%}
         {% endif %}
     {%endblock nav_content %}
 
 
 {%block content%}
-    {%include 'home_content.html'%}
+    {%include 'Home/home_content.html'%}
 {%endblock content %}

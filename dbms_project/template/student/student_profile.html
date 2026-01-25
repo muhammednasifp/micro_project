@@ -1,4 +1,4 @@
-{% extends 'blank_layout.html' %}
+{% extends 'Home/blank_layout.html' %}
 {% load static %}
      
 {%block content_style%}
@@ -6,9 +6,9 @@
 {% endblock content_style %}
 
 {% block nav_content %}
-    {% include 'navbar.html'%}  
+    {% include 'Home/navbar.html'%}  
 {%endblock nav_content %}
 
 {%block content%}
-    {%include 'profile_content.html'%}
-{%endblock content %}
+    {%include 'student/profile_content.html'%}
+{%endblock content %}   

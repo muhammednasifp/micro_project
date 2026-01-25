@@ -7,9 +7,7 @@ from student.models import PlacementPreferences
 def show_placement(request, student_id):
     
     pref = get_object_or_404(PlacementPreferences,student_id=student_id)
-
-    domains = [d.strip() for d in pref.domain.split(',')]  # multiple domain support
-
+    
     companies = Placement_details.objects.filter(
             Q(domain__icontains=pref.domain) |
             Q(job_title__icontains=pref.role) |
@@ -17,4 +15,8 @@ def show_placement(request, student_id):
             Q(package__icontains=pref.salary)
     )
 
-    return render(request,"placement.html",{"placements":companies})
+    return render(request,"placement/placement.html",{"placements":companies})
+
+def placement_details(request):
+    
+    return render(request,'Placement/placement_details.html')

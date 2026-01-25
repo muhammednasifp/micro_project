@@ -1,10 +1,10 @@
-{% extends 'blank_layout.html' %}
+{% extends 'Home/blank_layout.html' %}
 {% load static %}
 
-{%block content_style%}
+{%block content_style %}
     <link rel="stylesheet" href="{% static 'style/signup_style.css' %}">
 {% endblock content_style %}
 
 {%block content%}
-    {%include 'signup_content.html'%}
+    {%include 'UserLogin/signup_content.html'%}
 {%endblock content %}

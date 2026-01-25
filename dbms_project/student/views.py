@@ -4,7 +4,7 @@ from django.http import HttpResponse
  
 # Create your views here.
 def show_home(request):
-    return render(request,'home.html')
+    return render(request,'Home/home.html')
 
 def show_profile(request,student_id):
     student = Student.objects.select_related('academic_details', 'placement_preferences') \
@@ -22,7 +22,7 @@ def show_profile(request,student_id):
     # 'placement' fetches the student's PlacementPreferences; getattr ensures it returns None if not set  
     # 'skills' fetches all Skill objects linked to the student via ManyToManyField; returns a QuerySet  
     # context dictionary passes all this data from the view to the template so HTML can display it safely 
-    return render(request, 'student_profile.html',context)
+    return render(request, 'student/student_profile.html',context)
 
 def registration(request, student_id=None):
 
@@ -115,7 +115,7 @@ def registration(request, student_id=None):
             skill_obj, created = Skill.objects.get_or_create(name=name)
             student_obj.skills.add(skill_obj)
 
-        return redirect('student_profile', student_id=student_obj.id)
+        return redirect('student/student_profile', student_id=student_obj.id)
 
     # ------------------ GET Request: Load form ------------------
     context = {
@@ -126,4 +126,4 @@ def registration(request, student_id=None):
         "is_edit": True if student_id else False
     }
 
-    return render(request, 'registration.html', context)
+    return render(request, 'student/registration.html', context)

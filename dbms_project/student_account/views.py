@@ -18,7 +18,7 @@ def signin(request):
            
         else:
             print('ERROR')
-    return render(request,'signin.html')
+    return render(request,'UserLogin/signin.html')
 
 def signup(request):
     if request.POST:
@@ -28,4 +28,4 @@ def signup(request):
         if user:
           return  redirect('home')
     
-    return render(request,'signup.html')
+    return render(request,'UserLogin/signup.html')
