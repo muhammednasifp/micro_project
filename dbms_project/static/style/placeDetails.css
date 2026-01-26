@@ -16,28 +16,7 @@
             margin: 0 auto;
         }
 
-        .back-btn {
-            background: white;
-            color: #667eea;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
+      
         .placement-container {
             background: white;
             border-radius: 20px;
@@ -58,20 +37,22 @@
             margin-bottom: 20px;
         }
 
-        .company-logo {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: #667eea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .icon{
+                width: 100px;
+                height: 100px;
+                background: #ffffff;      /* 👈 this hides transparency */
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
+        .icon img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
         .company-details h1 {
             font-size: 36px;
             margin-bottom: 10px;
@@ -101,10 +82,12 @@
         .badge.active {
             background: #10b981;
         }
+        .badge.time{
+            background: #4660d4;
+        }
 
         .badge.urgent {
             background: #ef4444;
-            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {

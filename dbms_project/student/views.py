@@ -115,7 +115,7 @@ def registration(request, student_id=None):
             skill_obj, created = Skill.objects.get_or_create(name=name)
             student_obj.skills.add(skill_obj)
 
-        return redirect('student/student_profile', student_id=student_obj.id)
+        return redirect('student_profile', student_id=student_obj.id)
 
     # ------------------ GET Request: Load form ------------------
     context = {

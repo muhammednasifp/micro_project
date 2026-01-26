@@ -26,7 +26,7 @@ class AcademicDetails(models.Model):
     grade10 = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self)->str:
-        return self.student
+        return self.student.name
 
 
 class PlacementPreferences(models.Model):
@@ -37,9 +37,9 @@ class PlacementPreferences(models.Model):
     location = models.CharField(max_length=200)
 
     def __str__(self)->str:
-        return self.student
+        return self.student.name     
     
-
+    
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     students = models.ManyToManyField(Student, related_name="skills")

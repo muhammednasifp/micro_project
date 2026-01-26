@@ -17,6 +17,9 @@ def show_placement(request, student_id):
 
     return render(request,"placement/placement.html",{"placements":companies})
 
-def placement_details(request):
+def placement_details(request,placement_id):
     
-    return render(request,'Placement/placement_details.html')
+    details_obj=Placement_details.objects.get(id=placement_id)
+
+
+    return render(request,'Placement/placement_details.html',{"context":details_obj})

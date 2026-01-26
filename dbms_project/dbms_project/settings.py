@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'placement',
     'student',
-    'student_account',
+    'account',
     'rest',
-    'rest_framework'
+    'rest_framework',
+    'trainer'
+
 ]
 
 MIDDLEWARE = [

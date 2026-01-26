@@ -66,7 +66,11 @@
                     <span class="tag">{{placement.domain }}</span>
                 </div>
                 <div class="offer-actions">
-                    <button class="action-btn btn-primary" onclick="viewDetails('TechCorp India')">View Details</button>
+                    <button class="action-btn btn-primary"
+                        onclick="window.location.href='{% url 'details' placement.id %}'">
+                    View Details
+                </button>
+
                     
                 </div>
             </div>
@@ -97,63 +101,7 @@
                 }
             });
         }
-
-        function viewDetails(companyName) {
-            showNotification(`📋 Viewing details for ${companyName}`);
-        }
-
-        function acceptOffer(companyName) {
-            if (confirm(`Are you sure you want to accept the offer from ${companyName}?`)) {
-                showNotification(`🎉 Congratulations! Offer from ${companyName} accepted!`, 'success');
-            }
-        }
-
-        function prepareInterview(companyName) {
-            showNotification(`📚 Opening interview preparation for ${companyName}`);
-        }
-
-        function trackStatus(companyName) {
-            showNotification(`🔍 Checking application status for ${companyName}`);
-        }
-
-        function viewFeedback(companyName) {
-            showNotification(`💡 Opening feedback from ${companyName}`);
-        }
-
-        function archiveOffer(companyName) {
-            if (confirm(`Archive the application from ${companyName}?`)) {
-                showNotification(`📦 Application archived successfully`);
-            }
-        }
-
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            const bgColor = type === 'success' 
-                ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' 
-                : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${bgColor};
-                color: white;
-                padding: 15px 25px;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                z-index: 1000;
-                animation: slideIn 0.3s ease;
-                max-width: 400px;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-
+        
         // Add CSS for notification animations
         const style = document.createElement('style');
         style.textContent = `
