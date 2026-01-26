@@ -1,11 +1,11 @@
 {% extends 'Home/blank_layout.html'%}
 {% load static %}
 
-{%block content_style%}
-    <link rel="stylesheet" href="{% static 'style/placeDetails.css' %}">
+{% block content_style %}
+<link rel="stylesheet" href="{% static 'style/placeDetails.css' %}">
 {% endblock content_style %}
 
 
 {%block content%}
-    {%include 'placement/placement_details.html'%}
+    {% include 'placement/placement_details.html' %}
 {%endblock content %}
