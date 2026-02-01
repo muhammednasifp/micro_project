@@ -79,7 +79,39 @@ body {
     color: #667eea;
     text-decoration: none;
 }
+/* User Type Radio Button Styles */
+.form-group.user-type {
+    margin-bottom: 20px;
+}
 
+.form-group.user-type > label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.radio-label span {
+    user-select: none;
+}
 .btn {
     width: 100%;
     padding: 0.85rem;
