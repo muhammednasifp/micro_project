@@ -1,0 +1,1205 @@
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.trainer-info h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.trainer-info .subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.profile-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.profile-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    background: white;
+    color: #667eea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Stats Container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px 40px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left-color: #667eea;
+}
+
+.stat-icon {
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.stat-change {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-change.positive {
+    color: #10b981;
+}
+
+.stat-change.negative {
+    color: #ef4444;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d3748;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+}
+
+.quick-btn {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    color: #4a5568;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-btn:hover {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Upload Card */
+.upload-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 2px dashed #667eea;
+    padding: 50px 30px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border-color: #764ba2;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.upload-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.upload-card p {
+    color: #718096;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+/* Placements List */
+.placements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.placement-item {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.placement-item:hover {
+    background: white;
+    border-color: #667eea;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.placement-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.placement-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.placement-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #718096;
+    flex-wrap: wrap;
+}
+
+.placement-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quick-action-item {
+    background: #f7fafc;
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.quick-action-item:hover {
+    background: white;
+    border-color: #667eea;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.qa-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.qa-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 3px;
+}
+
+.qa-info p {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* Activity Feed */
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.activity-feed::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activity-feed::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.activity-feed::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.activity-content p {
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.modal-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.close-btn {
+    width: 40px;
+    height: 40px;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.info-input,
+.info-textarea {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #2d3748;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.info-input:focus,
+.info-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.info-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid #e9ecef;
+}
+
+.cancel-btn,
+.save-btn {
+    flex: 1;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+}
+
+.cancel-btn:hover {
+    background: #e2e8f0;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 30px 20px;
+    }
+
+    .trainer-info h1 {
+        font-size: 28px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .content-grid {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .placement-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .placement-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+</style>
+
+    <div class="container">
+        <!-- Dashboard Container -->
+        <div class="dashboard-container">
+            <!-- Welcome Header -->
+            <div class="dashboard-header">
+                <div class="header-content">
+                    <div class="trainer-info">
+                        <h1>Welcome Back, {{ trainer.name }}! 👋</h1>
+                        <p class="subtitle">Placement Coordinator Dashboard</p>
+                    </div>
+                    <button class="profile-btn" onclick="">
+                        <span class="profile-icon">{{ trainer.name|slice:":1" }}</span>
+                        <span>Profile</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-value">247</div>
+                        <div class="stat-label">Total Placements</div>
+                        <div class="stat-change positive">↑ 12% from last month</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value">38</div>
+                        <div class="stat-label">Active Postings</div>
+                        <div class="stat-change positive">↑ 5 new this week</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <div class="stat-value">1,543</div>
+                        <div class="stat-label">Applications</div>
+                        <div class="stat-change positive">↑ 18% from last week</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-change positive">↑ 3% improvement</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <div class="main-section">
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title">Upload New Placement</h2>
+                            <button class="quick-btn" onclick="openTemplates()">📋 Templates</button>
+                        </div>
+
+                        <!-- Upload Card -->
+                        <div class="upload-card" onclick="openUploadModal()">
+                            <div class="upload-icon">🚀</div>
+                            <h3>Create New Placement Opportunity</h3>
+                            <p>Add company placement details for students to view and apply</p>
+                            <button class="upload-btn">+ Upload Placement Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Placements -->
+                    <div class="section">
+                        <h2 class="section-title">Recently Posted Placements</h2>
+                        <div class="placements-list">
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">G</div>
+                                    <div class="placement-details">
+                                        <h4>Software Developer - Google India</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Bangalore</span>
+                                            <span>💰 18-22 LPA</span>
+                                            <span>⏰ 2 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">M</div>
+                                    <div class="placement-details">
+                                        <h4>Data Analyst - Microsoft</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Hyderabad</span>
+                                            <span>💰 15-18 LPA</span>
+                                            <span>⏰ 4 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">A</div>
+                                    <div class="placement-details">
+                                        <h4>Product Manager - Amazon</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Mumbai</span>
+                                            <span>💰 20-25 LPA</span>
+                                            <span>⏰ 1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">F</div>
+                                    <div class="placement-details">
+                                        <h4>UI/UX Designer - Flipkart</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Bangalore</span>
+                                            <span>💰 12-16 LPA</span>
+                                            <span>⏰ 1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Quick Actions -->
+                    <div class="section">
+                        <h2 class="section-title">Quick Actions</h2>
+                        <div class="quick-actions">
+                            <div class="quick-action-item" onclick="openUploadModal()">
+                                <div class="qa-icon">➕</div>
+                                <div class="qa-info">
+                                    <h4>New Placement</h4>
+                                    <p>Upload details</p>
+                                </div>
+                            </div>
+                            <div class="quick-action-item" onclick="viewApplications()">
+                                <div class="qa-icon">📊</div>
+                                <div class="qa-info">
+                                    <h4>View Applications</h4>
+                                    <p>Track submissions</p>
+                                </div>
+                            </div>
+                            <div class="quick-action-item" onclick="manageStudents()">
+                                <div class="qa-icon">👥</div>
+                                <div class="qa-info">
+                                    <h4>Manage Students</h4>
+                                    <p>View profiles</p>
+                                </div>
+                            </div>
+                            <div class="quick-action-item" onclick="generateReport()">
+                                <div class="qa-icon">📈</div>
+                                <div class="qa-info">
+                                    <h4>Generate Report</h4>
+                                    <p>Analytics & stats</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="section">
+                        <h2 class="section-title">Recent Activity</h2>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">📝</div>
+                                <div class="activity-content">
+                                    <h4>New Application Received</h4>
+                                    <p>Rahul Kumar applied for Google India</p>
+                                    <span class="activity-time">5 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">✅</div>
+                                <div class="activity-content">
+                                    <h4>Placement Approved</h4>
+                                    <p>Microsoft posting went live</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">👤</div>
+                                <div class="activity-content">
+                                    <h4>Student Profile Updated</h4>
+                                    <p>Priya Sharma updated resume</p>
+                                    <span class="activity-time">3 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🎯</div>
+                                <div class="activity-content">
+                                    <h4>Placement Closed</h4>
+                                    <p>Amazon reached max applications</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-overlay" onclick="closeUploadModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Placement</h2>
+                <button class="close-btn" onclick="closeUploadModal()">×</button>
+            </div>
+
+            <form id="placementForm" method="POST" action="">
+                {% csrf_token %}
+                
+                <!-- Company Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Company Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item full-width">
+                            <div class="info-label">Company Name *</div>
+                            <input type="text" class="info-input" name="company_name" required placeholder="e.g., Google India">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Job Title *</div>
+                            <input type="text" class="info-input" name="job_title" required placeholder="e.g., Software Developer">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Job Type *</div>
+                            <select class="info-input" name="job_type" required>
+                                <option value="">Select Type</option>
+                                <option value="Full-Time">Full-Time</option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Details -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Job Details</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Salary Package (LPA) *</div>
+                            <input type="text" class="info-input" name="salary_package" required placeholder="e.g., 15-18">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Location *</div>
+                            <input type="text" class="info-input" name="location" required placeholder="e.g., Bangalore">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Positions Available *</div>
+                            <input type="number" class="info-input" name="positions" required placeholder="e.g., 10">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Department *</div>
+                            <input type="text" class="info-input" name="department" required placeholder="e.g., Engineering">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Experience Required</div>
+                            <input type="text" class="info-input" name="experience" placeholder="e.g., 0-2 years">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Application Deadline *</div>
+                            <input type="date" class="info-input" name="deadline" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eligibility Criteria -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Eligibility Criteria</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Minimum CGPA *</div>
+                            <input type="number" step="0.01" class="info-input" name="min_cgpa" required placeholder="e.g., 7.5">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Eligible Branches *</div>
+                            <input type="text" class="info-input" name="eligible_branches" required placeholder="e.g., CSE, IT, ECE">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Eligible Batch *</div>
+                            <input type="text" class="info-input" name="eligible_batch" required placeholder="e.g., 2024, 2025">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Max Backlogs Allowed *</div>
+                            <input type="number" class="info-input" name="max_backlogs" required placeholder="e.g., 0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Description -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Job Description & Skills</h3>
+                    <div class="info-grid">
+                        <div class="info-item full-width">
+                            <div class="info-label">Job Description *</div>
+                            <textarea class="info-textarea" name="job_description" required placeholder="Describe the role, responsibilities, and requirements..."></textarea>
+                        </div>
+                        <div class="info-item full-width">
+                            <div class="info-label">Required Skills *</div>
+                            <input type="text" class="info-input" name="skills" required placeholder="e.g., Python, Java, React, SQL (comma separated)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Contact Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">HR Contact Name</div>
+                            <input type="text" class="info-input" name="hr_name" placeholder="e.g., John Doe">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">HR Email</div>
+                            <input type="email" class="info-input" name="hr_email" placeholder="e.g., hr@company.com">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">HR Phone</div>
+                            <input type="tel" class="info-input" name="hr_phone" placeholder="e.g., +91 98765 43210">
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Company Website</div>
+                            <input type="url" class="info-input" name="website" placeholder="e.g., https://company.com">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="action-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeUploadModal()">Cancel</button>
+                    <button type="submit" class="save-btn">🚀 Publish Placement</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        
+
+        // Form Validation
+        document.getElementById('placementForm').addEventListener('submit', function(e) {
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#ef4444';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+
+            if (!isValid) {
+                e.preventDefault();
+                showNotification('Please fill in all required fields!', 'error');
+            }
+        });
+
+        // Success notification
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            showNotification('Placement posted successfully! ✅', 'success');
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+

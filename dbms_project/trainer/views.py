@@ -10,4 +10,4 @@ def pending_page(request):
 
 def approved_page(request):
     print(request)
-    return render(request,'trainer/approved_page.html')
+    return render(request,'trainer/trainer_home.html')
