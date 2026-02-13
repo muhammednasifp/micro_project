@@ -1,0 +1,491 @@
+    <div class="container">
+        <!-- Dashboard Container -->
+        <div class="dashboard-container">
+            <!-- Welcome Header -->
+            <div class="dashboard-header">
+                <div class="header-content">
+                    <div class="trainer-info">
+                        <h1>Welcome Back, Coordinator! 👋</h1>
+                        <p class="subtitle">Placement Coordinator Dashboard</p>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="profile-btn" onclick="toggleProfileDropdown()">
+                            <span class="profile-icon">PC</span>
+                            <span>Profile</span>
+                        </button>
+                        
+                        <!-- Profile Dropdown -->
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-avatar">PC</div>
+                                <div class="dropdown-name">Placement Coordinator</div>
+                                <div class="dropdown-role">Administrator</div>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="dropdown-divider"></div>
+                                <div class="dropdown-item dropdown-logout" onclick="window.location.href='{% url 'signout' %}'">
+                                    <div class="dropdown-icon">🚪</div>
+                                    <div class="dropdown-info">
+                                        <h4>Logout</h4>
+                                        <p>Sign out of your account</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <div class="main-section">
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title">Upload New Placement</h2>
+                        </div>
+
+                        <!-- Upload Card -->
+                        <div class="upload-card" onclick="openUploadModal()">
+                            <div class="upload-icon">🚀</div>
+                            <h3>Create New Placement Opportunity</h3>
+                            <p>Add company placement details for students to view and apply</p>
+                            <button class="upload-btn">+ Upload Placement Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Placements -->
+                    <div class="section">
+                        <h2 class="section-title">Recently Posted Placements</h2>
+                        <div class="placements-list">
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">G</div>
+                                    <div class="placement-details">
+                                        <h4>Software Developer - Google India</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Bangalore</span>
+                                            <span>💰 18-22 LPA</span>
+                                            <span>⏰ 2 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">M</div>
+                                    <div class="placement-details">
+                                        <h4>Data Analyst - Microsoft</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Hyderabad</span>
+                                            <span>💰 15-18 LPA</span>
+                                            <span>⏰ 4 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">A</div>
+                                    <div class="placement-details">
+                                        <h4>Product Manager - Amazon</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Mumbai</span>
+                                            <span>💰 20-25 LPA</span>
+                                            <span>⏰ 1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+
+                            <div class="placement-item">
+                                <div class="placement-info">
+                                    <div class="company-logo">F</div>
+                                    <div class="placement-details">
+                                        <h4>UI/UX Designer - Flipkart</h4>
+                                        <div class="placement-meta">
+                                            <span>📍 Bangalore</span>
+                                            <span>💰 12-16 LPA</span>
+                                            <span>⏰ 1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="placement-actions">
+                                    <button class="action-btn view-btn" title="View">👁️</button>
+                                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Profile Card -->
+                    <div class="section">
+                        <h2 class="section-title" id="section-title-id">Your Profile</h2>
+                        <div class="upload-card" id= "uplod-card-id" onclick="openProfileModal()" style="padding: 35px 25px;">
+                            <div class="upload-icon" style="font-size: 50px; margin-bottom: 15px;">👤</div>
+                            <h3 style="font-size: 20px;">View Profile Details</h3>
+                            <p style="margin-bottom: 20px;">See your complete information and account details</p>
+                            <button class="upload-btn" style="padding: 12px 30px; font-size: 15px;">View Profile</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="section">
+                        <h2 class="section-title">Quick Actions</h2>
+                        <div class="quick-actions">
+                            <div class="quick-action-item" onclick="viewApplications()">
+                                <div class="qa-icon">📊</div>
+                                <div class="qa-info">
+                                    <h4>View Applications</h4>
+                                    <p>Track submissions</p>
+                                </div>
+                            </div>
+                            <div class="quick-action-item" onclick="manageStudents()">
+                                <div class="qa-icon">👥</div>
+                                <div class="qa-info">
+                                    <h4>Manage Students</h4>
+                                    <p>View profiles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-overlay" onclick="closeUploadModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Placement</h2>
+                <button class="close-btn" onclick="closeUploadModal()">×</button>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                <!-- Company Section -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Company Info</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Company Name</div>
+                            {{ company_form.company_name }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Company URL</div>
+                            {{ company_form.company_url }}
+                        </div>
+
+                        <div class="info-item full-width">
+                            <div class="info-label">Company Logo</div>
+                            {{ company_form.company_logo }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Placement Info</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Job Title</div>
+                            {{ placement_form.job_title }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Domain</div>
+                            {{ placement_form.domain }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Employment Type</div>
+                            {{ placement_form.employment_type }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Work Mode</div>
+                            {{ placement_form.work_mode }}
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Package</div>
+                            {{ placement_form.package }}
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Location</div>
+                            {{ placement_form.location }}
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Experience</div>
+                                {{ placement_form.experience }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Vacancy No</div>
+                            {{ placement_form.vacancy_no }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Minimum GPA</div>
+                            {{ placement_form.min_gpa }}
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Passing Year</div>
+                            {{ placement_form.passing_year }}
+                        </div>
+                                
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Job Description</h3>
+                    {{ job_form.job_description }}
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Responsibilities</h3>
+                    {{ job_form.responsibilities }}
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Required Skills</h3>
+                    {{ job_form.required_skills }}
+                </div>
+                <div class="action-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeUploadModal()">Cancel</button>
+                    <button type="submit" class="save-btn">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-overlay" onclick="closeProfileModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Profile Details</h2>
+                <button class="close-btn" onclick="closeProfileModal()">×</button>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 700; color: white; margin: 0 auto 15px;">PC</div>
+                <h3 style="font-size: 24px; color: #2d3748; margin-bottom: 5px;">Placement Coordinator</h3>
+                <p style="color: #718096; font-size: 14px;">Administrator</p>
+            </div>
+
+            <div class="form-section">
+                <h3 class="form-section-title">Personal Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Full Name</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">Placement Coordinator</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">Administrator</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email Address</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">coordinator@college.edu</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone Number</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">+91 98765 43210</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="form-section-title">Department Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Department</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">Training & Placement</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Employee ID</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">EMP2024001</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Join Date</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">January 15, 2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Office Location</div>
+                        <div style="padding: 12px 15px; background: #f7fafc; border-radius: 10px; color: #2d3748;">Admin Block, Room 205</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="margin-bottom: 0;">
+                <h3 class="form-section-title">Statistics</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Total Placements Posted</div>
+                        <div style="padding: 12px 15px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 10px; color: #667eea; font-weight: 700;">247</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Active Postings</div>
+                        <div style="padding: 12px 15px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 10px; color: #667eea; font-weight: 700;">38</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Total Students Placed</div>
+                        <div style="padding: 12px 15px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 10px; color: #667eea; font-weight: 700;">1,543</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Success Rate</div>
+                        <div style="padding: 12px 15px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 10px; color: #667eea; font-weight: 700;">87%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Profile Dropdown Toggle
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(e) {
+            const profileBtn = document.querySelector('.profile-btn');
+            const dropdown = document.getElementById('profileDropdown');
+            
+            if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+
+        // Modal Functions
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Profile Modal Functions
+        function openProfileModal() {
+            document.getElementById('profileModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Quick Actions
+        function viewApplications() {
+            alert('📊 View Applications\n\nTrack all student applications and their status.');
+        }
+
+        function manageStudents() {
+            alert('👥 Manage Students\n\nView and manage student profiles and applications.');
+        }
+
+        // Form Validation
+        document.getElementById('placementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#ef4444';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+
+            if (isValid) {
+                showNotification('Placement posted successfully! ✅', 'success');
+                closeUploadModal();
+                this.reset();
+            } else {
+                showNotification('Please fill in all required fields!', 'error');
+            }
+        });
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>

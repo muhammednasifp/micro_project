@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models  import User
 from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
 from django.db import transaction
 from .models import UserType
 
@@ -26,7 +25,7 @@ def signin(request):
                 return redirect('pending_page')
             
             else:
-                return redirect('approved_page')
+                return redirect('trainer_dashboard')
         else:
             print('ERROR')
     return render(request,'UserLogin/signin.html')
