@@ -6,11 +6,11 @@ from django.http import HttpResponse
 def show_home(request):
     return render(request,'Home/home.html')
 
-def show_profile(request,student_id):
+def show_profile(request):
     student = Student.objects.select_related('academic_details', 'placement_preferences') \
                              .prefetch_related('skills') \
-                             .get(id=student_id)    
-
+                             .get(user=request.user)     #.get(id=student_id) this is less secure,because the id can be changed by anyone
+                             #here the logined user id is passed to the db
     context = {
         'student': student,
         'academic': getattr(student, 'academic_details', None),
@@ -26,7 +26,6 @@ def show_profile(request,student_id):
 
 def registration(request, student_id=None):
 
-    # ------------------ Fetch existing if editing ------------------
     student_obj = None
     academic_obj = None
     placement_obj = None

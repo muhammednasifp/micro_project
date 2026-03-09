@@ -4,6 +4,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('placement<int:student_id>',views.show_placement,name='placement'),
+    path('placement',views.show_placement,name='placement'),
     path('placement_details<int:placement_id>',views.placement_details,name='details')
 ]

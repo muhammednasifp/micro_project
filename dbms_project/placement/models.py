@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 class Company(models.Model):
     company_name = models.CharField(max_length=255,null=True)
     company_logo = models.ImageField(upload_to='company_logos/',null=True)  

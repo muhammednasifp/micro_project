@@ -32,7 +32,6 @@ class AcademicDetails(models.Model):
 class PlacementPreferences(models.Model):
     student = models.OneToOneField(Student, on_delete=models.CASCADE, related_name="placement_preferences")
     domain = models.CharField(max_length=200)
-    role = models.CharField(max_length=200)
     salary = models.CharField(max_length=50)
     location = models.CharField(max_length=200)
 
