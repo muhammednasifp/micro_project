@@ -24,8 +24,7 @@ def show_placement(request):
     
     placements = Placement.objects.select_related("company").filter(query)
 
-    return render(request,'placement/placement.html',{'placements':placements})
+    return render(request,'placement/placement.html',{"placements":placements})
 
 def placement_details(request,placement_id):
-
     return render(request,'placement/placement_details.html')

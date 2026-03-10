@@ -19,7 +19,7 @@ class Placement(models.Model):
         ('hybrid', 'Hybrid'),
     ]
 
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,related_name="company")
     employment_type = models.CharField(max_length=20, choices=EMPLOYMENT_TYPE_CHOICES, default="full-time",null=True)
     work_mode = models.CharField(max_length=20, choices=WORK_MODE_CHOICES, default="on-site",null=True)
     job_title = models.CharField(max_length=255,null=True)
@@ -33,7 +33,7 @@ class Placement(models.Model):
 
 class JobDetails(models.Model):
     
-    placement = models.OneToOneField(Placement, on_delete=models.CASCADE)
+    placement = models.OneToOneField(Placement, on_delete=models.CASCADE,related_name="placement")
     job_description=models.TextField(blank=True)
     responsibilities=models.TextField(blank=True)
     required_skills=models.TextField(blank=True)
